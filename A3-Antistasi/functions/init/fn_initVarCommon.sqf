@@ -100,6 +100,7 @@ hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");
 hasACE = (!isNil "ace_common_fnc_isModLoaded");
 hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
 hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
+hasTCGM = false;
 //IFA Detection
 //Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
 if isClass (configFile >> "CfgPatches" >> "LIB_Core") then
@@ -117,6 +118,9 @@ if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "r
 if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
+
+//TCGM_BikeBackpack Detection
+if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {hasTCGM = true; diag_log format ["%1: [Antistasi] | INFO | initVar | TCGM_BikeBackpack Detected.",servertime];};
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///

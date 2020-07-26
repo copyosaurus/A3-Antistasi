@@ -2,7 +2,7 @@
     This file controls the selection of templates based on the mods loaded and map used.
     When porting new mods/maps be sure to add them to their respective sections!
 */
-
+private _filename = "selector.sqf";
 //Map checker
 aridmaps = ["Altis","Kunduz","Malden","tem_anizay"];
 tropicalmaps = ["Tanoa"];
@@ -134,4 +134,9 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
       call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";
     };
   };
+};
+[2,"Reading Addon mod files.",_fileName] call A3A_fnc_log;
+if (hasTCGM) then {
+  call compile preProcessFileLineNumbers "Templates\AddonVics\tcgm_Civ.sqf";
+  [2, "Using Addon TCGM_BikeBackPack Template", _filename] call A3A_fnc_log;
 };
